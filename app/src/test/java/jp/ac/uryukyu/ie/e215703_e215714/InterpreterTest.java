@@ -2,6 +2,7 @@ package jp.ac.uryukyu.ie.e215703_e215714;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -45,5 +46,17 @@ public class InterpreterTest {
         String ans = "ABC\n";
         interpreter.interpret(code);
         assertEquals(ans, outContent.toString());
+    }
+
+    @Test
+    void inputCheck() {
+        System.setIn(new ByteArrayInputStream("abc\n".getBytes())); // "abc"を標準入力に流すため
+        Interpreter interpreter = new Interpreter();
+        interpreter.interpret(","); // ","を与えて"abc"を流し込む
+        System.setIn(System.in); // 標準入力をもとに戻す
+        assertEquals("\ninput> ", outContent.toString()); // プロンプトの表示確認
+        outContent.reset(); // 一旦リセット
+        interpreter.interpret("."); // 読み込んだ内容を出力する
+        assertEquals("a", outContent.toString()); // "abc"の最初の1byteで"a"
     }
 }
