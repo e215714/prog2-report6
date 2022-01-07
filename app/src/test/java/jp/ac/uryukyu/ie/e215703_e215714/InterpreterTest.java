@@ -7,6 +7,7 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class InterpreterTest {
@@ -23,6 +24,11 @@ public class InterpreterTest {
         System.setOut(origOut);
     }
 
+    @BeforeEach // タスクごとにoutContentをリセットする
+    void resetOut() {
+        outContent.reset();
+    }
+
     @Test
     void incDecOutCheck() {
         Interpreter interpreter = new Interpreter();
@@ -30,5 +36,14 @@ public class InterpreterTest {
         String ans = "HELLO";
         interpreter.interpret(code); // インタプリタにコードを渡して標準出力する
         assertEquals(ans, outContent.toString()); // ここで確認
+    }
+
+    @Test
+    void shiftCheck() {
+        Interpreter interpreter = new Interpreter();
+        String code = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+.>++++++++++.";
+        String ans = "ABC\n";
+        interpreter.interpret(code);
+        assertEquals(ans, outContent.toString());
     }
 }

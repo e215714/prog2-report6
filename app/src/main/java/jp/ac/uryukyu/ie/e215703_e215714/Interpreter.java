@@ -14,6 +14,10 @@ public class Interpreter {
                 mem.increment();
             } else if (nowChar == '-') {
                 mem.decrement();
+            } else if (nowChar == '>') {
+                mem.rightShift();
+            } else if (nowChar == '<') {
+                mem.leftShift();
             } else if (nowChar == '.') {
                 System.out.print((char) mem.getValue());
             }
