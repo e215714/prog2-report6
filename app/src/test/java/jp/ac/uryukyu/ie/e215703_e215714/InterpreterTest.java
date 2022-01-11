@@ -54,7 +54,7 @@ public class InterpreterTest {
         Interpreter interpreter = new Interpreter();
         interpreter.interpret(","); // ","を与えて"abc"を流し込む
         System.setIn(System.in); // 標準入力をもとに戻す
-        assertEquals("\ninput> ", outContent.toString()); // プロンプトの表示確認
+        assertEquals("\ninput(Only the first character will be read.)> ", outContent.toString()); // プロンプトの表示確認
         outContent.reset(); // 一旦リセット
         interpreter.interpret("."); // 読み込んだ内容を出力する
         assertEquals("a", outContent.toString()); // "abc"の最初の1byteで"a"
