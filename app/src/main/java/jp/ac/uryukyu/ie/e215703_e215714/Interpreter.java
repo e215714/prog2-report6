@@ -27,6 +27,38 @@ public class Interpreter {
             } else if (nowChar == ',') {
                 System.out.print("\ninput> ");
                 mem.setValue((byte) scanner.next().charAt(0));
+            } else if (nowChar == '[') {
+                if (mem.getValue() == 0) {
+                    int nest = 0;
+                    while (true) {
+                        i++;
+                        if (code.charAt(i) == '[') {
+                            nest++;
+                        } else if (code.charAt(i) == ']') {
+                            if (nest == 0) {
+                                break;
+                            } else {
+                                nest--;
+                            }
+                        }
+                    }
+                }
+            } else if (nowChar == ']') {
+                if (mem.getValue() != 0) {
+                    int nest = 0;
+                    while (true) {
+                        i--;
+                        if (code.charAt(i) == '[') {
+                            if (nest == 0) {
+                                break;
+                            } else {
+                                nest--;
+                            }
+                        } else if (code.charAt(i) == ']') {
+                            nest++;
+                        }
+                    }
+                }
             }
         }
     }

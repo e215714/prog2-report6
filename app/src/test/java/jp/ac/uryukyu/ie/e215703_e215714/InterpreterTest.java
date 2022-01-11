@@ -59,4 +59,13 @@ public class InterpreterTest {
         interpreter.interpret("."); // 読み込んだ内容を出力する
         assertEquals("a", outContent.toString()); // "abc"の最初の1byteで"a"
     }
+
+    @Test
+    void loopCheck() {
+        Interpreter interpreter = new Interpreter();
+        String code = "++++++++++[>+++++++>++++++++++>+++++++++++>+++>+++++++++>+<<<<<<-]>++.>+.>--..+++.>++.>---.<<.+++.------.<-.>>+.>>.";
+        String ans = "Hello World!\n";
+        interpreter.interpret(code);
+        assertEquals(ans, outContent.toString());
+    }
 }
