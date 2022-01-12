@@ -6,7 +6,17 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * ファイルを読み込むクラス
+ * @author Taisei Maetake
+ */
 public class FileReader {
+
+    /**
+     * ファイルを読み込んで1行のStringにするメソッド
+     * @param path ファイルパス
+     * @return 1行のString
+     */
     public static String toOneLine(String path) {
         Path file = Paths.get(path);
         String result = "";
