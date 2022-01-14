@@ -5,6 +5,8 @@ public class Main {
         if (args.length == 0) {
             Interact interact = new Interact();
             interact.start();
+        } else if (args[0].equals("-h") || args[0].equals("--help")) {
+            System.out.println("usage: [-h | filename]\n-h : print this help message and exit (also --help)\nIf no args, you can enter the Interactive mode.\n");
         } else {
             String code = Utilities.toOneLine(args[0]);
             code = Utilities.ignoreComment(code);
