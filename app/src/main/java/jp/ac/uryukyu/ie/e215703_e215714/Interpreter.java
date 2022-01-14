@@ -23,6 +23,16 @@ public class Interpreter {
     }
 
     /**
+     * コンストラクタ
+     * 入力受付用のScannerを用意
+     * @param _mem 使用したいメモリ配列
+     */
+    public Interpreter(MemArray _mem){
+        mem = _mem;
+        scanner = new Scanner(System.in);
+    }
+
+    /**
      * インタプリタメソッド <br>
      * <code>+</code> ポインタが指す値をインクリメント <br>
      * <code>-</code> ポインタが指す値をデクリメント <br>

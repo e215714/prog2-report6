@@ -2,9 +2,10 @@ package jp.ac.uryukyu.ie.e215703_e215714;
 
 /**
  * 擬似的なメモリ配列を再現するクラス
- *  byte[] mem 疑似メモリ配列
- *  int ptr ポインタの位置を示す変数 0-base
- *  int cap メモリの容量
+ * byte[] mem 疑似メモリ配列
+ * int ptr ポインタの位置を示す変数 0-base
+ * int cap メモリの容量
+ * 
  * @author Taiga Ogawa
  */
 public class MemArray {
@@ -26,6 +27,7 @@ public class MemArray {
      * コンストラクタ
      * ptrを0で初期化
      * 受け取った引数でメモリ容量を指定して初期化
+     * 
      * @param cap 設定したいメモリ容量
      */
     public MemArray(int cap) {
@@ -47,7 +49,7 @@ public class MemArray {
     public void leftShift() {
         ptr--;
     }
-    
+
     /**
      * ポインタの位置のメモリの値をインクリメントするメソッド
      */
@@ -64,6 +66,7 @@ public class MemArray {
 
     /**
      * ポインタの位置のメモリの値を返すメソッド
+     * 
      * @return ポインタの位置のメモリの値
      */
     public byte getValue() {
@@ -72,9 +75,18 @@ public class MemArray {
 
     /**
      * ポインタの位置のメモリに値を設定するメソッド
+     * 
      * @param b 設定したい値
      */
     public void setValue(byte b) {
         mem[ptr] = b;
+    }
+
+    /**
+     * メモリの状態を初期化するメソッド
+     */
+    public void clear() {
+        ptr = 0;
+        mem = new byte[cap];
     }
 }
