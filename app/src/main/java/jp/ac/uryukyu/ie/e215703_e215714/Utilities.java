@@ -7,13 +7,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * ファイルを読み込むクラス
- * @author Taisei Maetake
+ * 便利メソッド集
+ * toOneLine - ファイルを読み込んで1行のStringにするメソッド
+ * ignoreComment - コメントを削除するメソッド
  */
-public class FileReader {
-
+public class Utilities {
     /**
      * ファイルを読み込んで1行のStringにするメソッド
+     * 
      * @param path ファイルパス
      * @return 1行のString
      */
@@ -31,5 +32,15 @@ public class FileReader {
             e.printStackTrace();
         }
         return result;
+    }
+
+    /**
+     * 与えられた文字列から+-&lt;&gt;.,[]以外の文字を削除するメソッド
+     * 
+     * @param text ありとあらゆる文字列
+     * @return +-&lt;&gt;.,[]のみの文字列
+     */
+    public static String ignoreComment(String text) {
+        return text.replaceAll("[^\\+\\-\\<\\>\\.\\,\\[\\]]+", "");
     }
 }

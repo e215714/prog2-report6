@@ -6,8 +6,8 @@ public class Main {
             Interact interact = new Interact();
             interact.start();
         } else {
-            String code = FileReader.toOneLine(args[0]);
-            code = IgnoreComment.ignoreComment(code);
+            String code = Utilities.toOneLine(args[0]);
+            code = Utilities.ignoreComment(code);
             var interpreter = new Interpreter();
             interpreter.interpret(code);
         }
