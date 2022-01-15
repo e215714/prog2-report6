@@ -6,6 +6,16 @@
   - Brainfuckのコードが書かれたファイルから結果を出力する。
   - インタラクティブモードからコードを入力して実行できる。
 
+## 実行確認済み環境
+  - macOS 11.4(Big Sur) M1
+    - Java 16.0.2
+  - macOS 12.1(Monterey) M1
+    - Java 16.0.2
+  - Ubuntu 20.04.3 LTS (Release:20.04, focal)
+    - Java 16.0.1
+
+prog2の授業では[VSCodeの環境構築](https://github.com/naltoma/java_intro2020/blob/master/VSCode-env.md)でインストールしたOpenJDK 16を使用しているため、build.gradle内で`sourceCompatibility = 16`としていますが、それ以外のバージョンでも動作できると思います。
+
 ## build方法(jarファイルの生成)
   ```
   ./gradlew build
