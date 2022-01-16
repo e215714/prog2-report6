@@ -1,4 +1,7 @@
 # Brainfuckインタプリタ
+![CI with Gradle](https://github.com/e215714/prog2-report6/actions/workflows/gradle.yml/badge.svg)
+![Java version](https://img.shields.io/badge/Java-v16.0.2-B07219.svg?logo=java)
+![Java version](https://img.shields.io/badge/Gradle-v7.2-006245.svg?logo=Gradle)
 
   prog2-report6で作成した、Javaで実装されたBrainfuckインタプリタ。
 
