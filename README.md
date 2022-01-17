@@ -20,24 +20,39 @@
 prog2の授業では[VSCodeの環境構築](https://github.com/naltoma/java_intro2020/blob/master/VSCode-env.md)でインストールしたOpenJDK 16を使用しているため、build.gradle内で`sourceCompatibility = 16`としていますが、それ以外のバージョンでも動作できると思います。
 
 ## build方法(jarファイルの生成)
-  ```
-  ./gradlew build
-  ```
-  
-  `app/build/libs/BfInterpreter.jar`が生成されます。
+```
+./gradlew build
+```
+
+`app/build/libs/BfInterpreter.jar`が生成されます。
 
 ## 使い方
 
 ### ファイルを読み込んで出力
-
 ```
-java -jar BfInterpreter.jar [filename]
+java -jar BfInterpreter.jar [filepath]
 ```
 
 ### インタラクティブモードの起動
 ```
 java -jar BfInterpreter.jar
 ```
+
+### gradle run
+
+一応`gradle run`はできますが、インタラクティブモードの表示が崩れたり、ファイルの渡し方が面倒なので**オススメできません**。
+
+#### インタラクティブモードの起動
+```
+./gradlew run
+```
+
+#### ファイルを読み込んで実行
+```
+./gradlew run --args "[filepath]"
+```
+
+ここで`filepath`は、絶対パスまたは、pwdを`app`とする相対パス(例えば`app/src/test/resources/HelloWorld.bf`を渡したければ、`--args "src/test/resources/HelloWorld.bf"`とする)の入力が必要です。
 
 ## コントリビューター
   - Taiga Ogawa ([@e215714](https://github.com/e215714))

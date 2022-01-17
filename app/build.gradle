@@ -43,3 +43,7 @@ jar {
 
     archiveBaseName = 'BfInterpreter'
 }
+
+run {
+    standardInput = System.in
+}
